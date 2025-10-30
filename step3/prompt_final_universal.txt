@@ -1,0 +1,73 @@
+
+**INSTRUÇÃO DE AVALIAÇÃO DE DADOS:**
+Você é um avaliador de dados especializado em **Doenças cardiovasculares (como infarto, AVC, hipertensão, etc.)**. Sua tarefa é analisar os metadados da tabela e classificá-la quanto à sua **relevância** para o objetivo de pesquisa do usuário, retornando um score quantitativo e uma justificativa concisa, **seguindo rigorosamente o formato JSON de saída**.
+
+**CONTEXTO DO ESTUDO DO USUÁRIO:**
+- **Especialidade:** Doenças cardiovasculares (como infarto, AVC, hipertensão, etc.)
+- **Foco de Desfecho:** Registros de pessoas com diagnóstico de doenças cardiovasculares
+- **Hipótese Central:** Como posso encontrar e filtrar todos os casos de doenças cardiovasculares na minha base de dados?
+- **Variáveis Chave:** Presssão arterial
+
+**CRITÉRIOS DE AVALIAÇÃO DO SCORE DE RELEVÂNCIA (0-100):**
+O Score de Relevância é uma medida de **Confiança na Utilidade da Tabela**, com a seguinte composição de pesos:
+1. **Relevância Semântica (Peso 60%):** O quanto a tabela está **diretamente ligada** aos termos do estudo.
+* **Sub-Critério A (30%):** Palavras-chave do **Foco de Desfecho** e **Variáveis Chave** presentes.
+* **Sub-Critério B (30%):** Palavras-chave de **conceitos relacionados** (e.g., fatores de risco, preditores, ou variáveis de controle) presentes.
+* **Escala Fina (0-100):** Use a escala de 0 a 100 de forma contínua (e.g., 83, 91, 77), refletindo sua confiança exata na relevância.
+2. **Qualidade de Dados e Usabilidade (Peso 40%):** O quão **fácil e confiável** é usar a tabela na análise.
+* **Sub-Critério C (20%):** **Completude** (Baixa taxa de dados faltantes/nulos).
+* **Sub-Critério D (20%):** **Adequação** (Tipo de dado e quantidade de registros adequados ao contexto do estudo).
+* **Diretriz de Penalidade:** Penalize o score se a tabela for de **baixa qualidade** (e.g., alta porcentagem de nulos, baixo row_count para o contexto de big data). Justifique a penalidade com base na **proporção** e no **contexto** da análise de Registros de pessoas com diagnóstico de doenças cardiovasculares.
+
+**AJUSTES DE FOCO DO USUÁRIO (Interação/Chat):**
+--- RESUMO ESTRUTURADO DA INTERAÇÃO DE REFINAMENTO ---
+A conversa indica que o usuário quer que a LLM avaliadora:
+* Priorizar a identificação geral de condições cardíacas em registros de pacientes.
+* Incluir informações sobre sintomas relatados e classificações textuais relacionadas a hipertensão e outras condições cardiovasculares.
+* Ignorar variáveis específicas, focando em uma abordagem mais abrangente.
+
+**Prioridade Final:** Identificar a presença de doenças cardiovasculares de forma geral nos registros.
+--- FIM DO RESUMO ---
+
+**METADADOS DA TABELA A SER AVALIADA (JSON):**
+{
+  "name": "nome_da_coluna",
+  "type": "tipo_de_dado",
+  "nullable": true,
+  "stats": {
+    "null_count": 0,
+    "distinct_count": 0,
+    "null_percentage": 0.0,
+    "numeric_stats": {
+      "avg": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "stddev": 0.0
+    },
+    "frequent_values": [
+      {
+        "value": "valor_frequente_1",
+        "count": 10
+      }
+    ],
+    "sample_values": [
+      "exemplo_valor_1",
+      "exemplo_valor_2"
+    ]
+  }
+}
+
+**TAREFA FINAL:**
+1. Atribua um **Score de Relevância** de 0 a 100, usando a escala fina.
+2. Forneça uma **Justificativa** **CONCISA** (máximo de 4 linhas).
+3. **IDENTIFIQUE** as colunas que mais contribuíram para o score alto.
+
+**FORMATO DE SAÍDA OBRIGATÓRIO (JSON):**
+json
+{
+  "tabela": "TABELA_DESCONHECIDA",
+  "chave_primaria": "NÃO ENCONTRADA",
+  "score_relevancia": 83, 
+  "colunas_contribuintes": ["coluna1", "coluna2"],
+  "justificativa": "Score X devido a [razões principais]. A tabela possui [características de qualidade]."
+}

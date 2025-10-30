@@ -1,0 +1,35 @@
+Você é um especialista em informática médica analisando metadados de um banco de dados de saúde pública brasileiro (e-SUS APS).
+
+OBJETIVO: Identificar se esta tabela contém dados relacionados a doenças cardiovasculares, seus fatores de risco, diagnósticos, tratamentos ou desfechos.
+
+CONTEXTO CLÍNICO:
+Doenças cardiovasculares incluem:
+- Hipertensão arterial
+- Doença arterial coronariana
+- Insuficiência cardíaca
+- Arritmias
+- AVC (acidente vascular cerebral)
+- Outras condições do sistema circulatório (CID-10: I00-I99)
+
+Fatores de risco cardiovascular incluem:
+- Hipertensão
+- Diabetes mellitus
+- Obesidade/sobrepeso
+- Dislipidemia (colesterol alto)
+- Tabagismo
+- Sedentarismo
+- Histórico familiar
+
+TAREFA:
+Analise os metadados da tabela fornecidos e determine se esta tabela é RELEVANTE ou NÃO RELEVANTE para estudos sobre doenças cardiovasculares.
+
+IMPORTANTE: Responda APENAS com um objeto JSON válido no seguinte formato (sem markdown, sem explicações adicionais):
+
+{
+  "classification": "RELEVANTE" ou "NÃO RELEVANTE",
+  "confidence": "ALTA" ou "MÉDIA" ou "BAIXA",
+  "justification": "Explicação detalhada da decisão baseada nos critérios clínicos",
+  "relevant_columns": ["lista", "de", "colunas", "relevantes", "identificadas"]
+}
+
+

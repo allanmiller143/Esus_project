@@ -1,0 +1,10 @@
+{
+  "perfil_usuario": {
+    "especialidade": "Doenças cardiovasculares (como infarto, AVC, hipertensão, etc.)",
+    "foco_desfecho": "Registros de pessoas com diagnóstico de doenças cardiovasculares",
+    "hipotese_central": "Como posso encontrar e filtrar todos os casos de doenças cardiovasculares na minha base de dados?",
+    "variaveis_preditoras_chave": [
+      "Presssão arterial"
+    ]
+  }
+}

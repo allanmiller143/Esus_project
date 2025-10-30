@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "data_extracao": "2025-10-06T00:22:55.008995",
+    "banco": "teixeirapb",
+    "host": "localhost"
+  },
+  "estatisticas": {
+    "n_tabelas": 1100,
+    "tabelas_por_schema": {
+      "public": 1100
+    },
+    "n_colunas": 9662,
+    "media_colunas_por_tabela": 8.78,
+    "n_pacientes": 32379,
+    "fonte_pacientes": "public.tb_cidadao",
+    "todas_fontes_pacientes": {
+      "public.tb_cidadao": {
+        "coluna_id": "co_seq_cidadao",
+        "n_pacientes": 32379
+      }
+    },
+    "n_gestantes": null
+  }
+}

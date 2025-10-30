@@ -1,0 +1,157 @@
+{
+  "metadata": {
+    "execution_date": "2025-10-30 19:15:12",
+    "llm_provider": "Mistral",
+    "model": "mistral-small",
+    "temperature": 0.1,
+    "prompt_file": "prompt_final_universal.txt",
+    "input_file": "metadata_advanced_consolidated_filtered.json",
+    "total_tables_processed": 10,
+    "limit": 10
+  },
+  "summary": {
+    "total_tables": 10,
+    "score_statistics": {
+      "avg": 41.8,
+      "min": 20,
+      "max": 70,
+      "median": 50
+    },
+    "score_distribution": {
+      "high_relevance_80_100": 0,
+      "medium_relevance_50_79": 5,
+      "low_relevance_20_49": 5,
+      "very_low_relevance_0_19": 0
+    },
+    "errors": 0
+  },
+  "classifications": [
+    {
+      "tabela": "TB_MIGRACAO_DADOS",
+      "chave_primaria": "installed_rank",
+      "score_relevancia": 20,
+      "colunas_contribuintes": [
+        "description"
+      ],
+      "justificativa": "Score 20 devido à presença da palavra-chave 'atividade coletiva' relacionada a saúde, mas a tabela não está diretamente ligada ao foco de desfecho ou às variáveis-chave do estudo. A tabela possui uma alta taxa de registros (825) e uma baixa porcentagem de nulos (18.42%).",
+      "table_name": "TB_MIGRACAO_DADOS",
+      "schema": "public",
+      "row_count": 825
+    },
+    {
+      "tabela": "tb_acomp_cidadaos_vinculados",
+      "chave_primaria": [
+        "co_seq_acomp_cidadaos_vinc"
+      ],
+      "score_relevancia": 70,
+      "colunas_contribuintes": [
+        "no_cidadao",
+        "no_social_cidadao",
+        "dt_nascimento_cidadao",
+        "no_sexo_cidadao",
+        "nu_cpf_cidadao",
+        "nu_cns_cidadao"
+      ],
+      "justificativa": "Score 70 devido à presença de colunas relevantes como nome, data de nascimento, sexo e identificadores únicos. No entanto, a tabela carece de colunas específicas relacionadas às doenças cardiovasculares, o que limita seu potencial para o estudo em questão.",
+      "table_name": "tb_acomp_cidadaos_vinculados",
+      "schema": "public",
+      "row_count": 15724
+    },
+    {
+      "tabela": "tb_dim_dose_imunobiologico",
+      "chave_primaria": "co_seq_dim_dose_imunobiologico",
+      "score_relevancia": 20,
+      "colunas_contribuintes": [
+        "no_dose_imunobiologico"
+      ],
+      "justificativa": "Score 20 devido à ausência de palavras-chave relacionadas à doença cardiovascular. A tabela possui informações sobre doses de imunobiológicos, sem menção a sintomas ou classificações relacionadas à hipertensão ou outras condições cardiovasculares.",
+      "table_name": "tb_dim_dose_imunobiologico",
+      "schema": "public",
+      "row_count": 82
+    },
+    {
+      "tabela": "tb_dim_imunobiologico",
+      "chave_primaria": "co_seq_dim_imunobiologico",
+      "score_relevancia": 30,
+      "colunas_contribuintes": [
+        "no_imunobiologico"
+      ],
+      "justificativa": "Score 30 devido à presença de palavras-chave relacionadas a doenças cardiovasculares em apenas uma coluna (no_imunobiologico). A tabela possui baixa qualidade e usabilidade para o contexto de big data, com apenas 40 registros.",
+      "table_name": "tb_dim_imunobiologico",
+      "schema": "public",
+      "row_count": 40
+    },
+    {
+      "tabela": "ta_ad_cidadao",
+      "chave_primaria": "co_seq_taadcidadao",
+      "score_relevancia": 60,
+      "colunas_contribuintes": [
+        "co_cid10_principal"
+      ],
+      "justificativa": "Score 60 devido ao Sub-Critério A (30%) com a presença da palavra-chave 'co_cid10_principal' relacionada ao Foco de Desfecho e Variáveis Chave. A tabela possui uma única linha de dados, o que pode impactar a análise.",
+      "table_name": "ta_ad_cidadao",
+      "schema": "public",
+      "row_count": 1
+    },
+    {
+      "tabela": "ta_evolucao_subjetivo",
+      "chave_primaria": "co_seq_taevolucaosubjetivo",
+      "score_relevancia": 68,
+      "colunas_contribuintes": [
+        "ds_subjetivo"
+      ],
+      "justificativa": "Score 68 devido ao Sub-Critério A (30%) com a coluna 'ds_subjetivo' contendo textos relacionados a condições cardiovasculares, como hipertensão. No entanto, a tabela possui uma alta taxa de nulos (24.97%) e não há informações diretas sobre outras doenças cardiovasculares (Sub-Critério A: 30%). A tabela possui adequação (Sub-Critério D) para o contexto do estudo.",
+      "table_name": "ta_evolucao_subjetivo",
+      "schema": "public",
+      "row_count": 198642
+    },
+    {
+      "tabela": "tb_acomp_cidadaos_vinc_prcs",
+      "chave_primaria": "co_seq_acomp_cidad_vinc_prcs",
+      "score_relevancia": 50,
+      "colunas_contribuintes": [
+        "no_status_processamento"
+      ],
+      "justificativa": "Score 50 devido à presença da palavra-chave 'PROCESSADO' relacionada ao processamento de registros de pessoas. No entanto, a tabela não possui colunas diretamente ligadas às doenças cardiovasculares ou à pressão arterial, o que impacta negativamente o score.",
+      "table_name": "tb_acomp_cidadaos_vinc_prcs",
+      "schema": "public",
+      "row_count": 867
+    },
+    {
+      "tabela": "tb_alim_bebida",
+      "chave_primaria": "co_alim_bebida",
+      "score_relevancia": 20,
+      "colunas_contribuintes": [
+        "ds_alim_bebida"
+      ],
+      "justificativa": "Score 20 devido à presença de palavras-chave relacionadas a alimentos, que podem estar relacionadas a fatores de risco cardiovascular. No entanto, a tabela carece de informações diretamente relevantes sobre doenças cardiovasculares. A tabela possui dados completos e adequados à análise.",
+      "table_name": "tb_alim_bebida",
+      "schema": "public",
+      "row_count": 10
+    },
+    {
+      "tabela": "tb_auditoria_evento",
+      "chave_primaria": "co_seq_auditoria_evento",
+      "score_relevancia": 50,
+      "colunas_contribuintes": [
+        "ds_detalhes"
+      ],
+      "justificativa": "Score 50 devido à presença da coluna ds_detalhes, que pode conter informações relacionadas a sintomas e classificações textuais de doenças cardiovasculares. No entanto, a tabela não possui colunas diretamente relacionadas ao foco de desfecho ou às variáveis-chave do estudo, o que justifica um score moderado.",
+      "table_name": "tb_auditoria_evento",
+      "schema": "public",
+      "row_count": 3125068
+    },
+    {
+      "tabela": "tb_beneficio",
+      "chave_primaria": "co_beneficio",
+      "score_relevancia": 30,
+      "colunas_contribuintes": [
+        "no_beneficio_filtro"
+      ],
+      "justificativa": "Score 30 devido à presença de palavras-chave relacionadas a conceitos (benefício), mas sem ligação direta com doenças cardiovasculares. A tabela possui alta completude e adequação, mas é de baixa relevância para o contexto do estudo.",
+      "table_name": "tb_beneficio",
+      "schema": "public",
+      "row_count": 7
+    }
+  ]
+}
