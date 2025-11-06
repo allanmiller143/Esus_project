@@ -1,32 +1,46 @@
 
 **INSTRUÇÃO DE AVALIAÇÃO DE DADOS:**
-Você é um avaliador de dados especializado em **Doenças cardiovasculares (como infarto, AVC, hipertensão, etc.)**. Sua tarefa é analisar os metadados da tabela e classificá-la quanto à sua **relevância** para o objetivo de pesquisa do usuário, retornando um score quantitativo e uma justificativa concisa, **seguindo rigorosamente o formato JSON de saída**.
+Você é um avaliador de dados. Sua tarefa é analisar os metadados da tabela e classificá-la quanto à sua **relevância** para o objetivo do usuário, retornando um score quantitativo e uma justificativa concisa, **seguindo rigorosamente o formato JSON de saída**.
 
-**CONTEXTO DO ESTUDO DO USUÁRIO:**
-- **Especialidade:** Doenças cardiovasculares (como infarto, AVC, hipertensão, etc.)
-- **Foco de Desfecho:** Registros de pessoas com diagnóstico de doenças cardiovasculares
-- **Hipótese Central:** Como posso encontrar e filtrar todos os casos de doenças cardiovasculares na minha base de dados?
-- **Variáveis Chave:** Presssão arterial
+**CONTEXTO DO ESTUDO DO USUÁRIO (Perfil Declarado):**
+- **Problema Geral:** detecção de doencas cardiovaculares
+- **Escopo de Uso:** Quero meio que selecionar o maximo de tabelas que se relacionem com doenças cardiacas
+- **Palavras-Chave do Tema:** pressão arterial, HDL, obesidade, sono, insonia, nutrição, colesterol, hipertensão
+- **Exclusões Declaradas:** codigos, identificadoes
+
+**Critérios Operacionais de Relevância (do usuário):**
+- **Definição Textual:** se a tabelas conter informações que possam me ajudar a detectar que ele possa ter apresentar doenças cardiacas
+- **Campos/Indicadores que aumentam relevância:** pressão alta, obesidade, diabetes
+- **Preferência (Precisão/Recall):** alta precisão
+- **Requisito Mínimo da Justificativa:** a justificativa deve conter o motivo da nota seja ela boa ou ruim.
 
 **CRITÉRIOS DE AVALIAÇÃO DO SCORE DE RELEVÂNCIA (0-100):**
+
 O Score de Relevância é uma medida de **Confiança na Utilidade da Tabela**, com a seguinte composição de pesos:
-1. **Relevância Semântica (Peso 60%):** O quanto a tabela está **diretamente ligada** aos termos do estudo.
-* **Sub-Critério A (30%):** Palavras-chave do **Foco de Desfecho** e **Variáveis Chave** presentes.
-* **Sub-Critério B (30%):** Palavras-chave de **conceitos relacionados** (e.g., fatores de risco, preditores, ou variáveis de controle) presentes.
-* **Escala Fina (0-100):** Use a escala de 0 a 100 de forma contínua (e.g., 83, 91, 77), refletindo sua confiança exata na relevância.
-2. **Qualidade de Dados e Usabilidade (Peso 40%):** O quão **fácil e confiável** é usar a tabela na análise.
-* **Sub-Critério C (20%):** **Completude** (Baixa taxa de dados faltantes/nulos).
-* **Sub-Critério D (20%):** **Adequação** (Tipo de dado e quantidade de registros adequados ao contexto do estudo).
-* **Diretriz de Penalidade:** Penalize o score se a tabela for de **baixa qualidade** (e.g., alta porcentagem de nulos, baixo row_count para o contexto de big data). Justifique a penalidade com base na **proporção** e no **contexto** da análise de Registros de pessoas com diagnóstico de doenças cardiovasculares.
+
+1. **RELEVÂNCIA SEMÂNTICA (Peso 80%)**: O quanto a tabela está **diretamente ligada** aos termos do estudo e ao problema específico do usuário.
+
+* **Sub-Critério A (40%):** Palavras-chave do **tema** central e **campos essenciais** diretamente relacionados ao problema do usuário presentes.
+* **Sub-Critério B (40%):** Conexão forte com **conceitos específicos do domínio do problema** - sinônimos exatos e termos diretamente aplicáveis à análise pretendida.
+* **Diretriz de Avaliação:** Priorize tabelas com alta especificidade temática. Tabelas com informações apenas tangencialmente relacionadas devem ser severamente penalizadas, mesmo que contenham muitos dados.
+
+2. **QUALIDADE DE DADOS E USABILIDADE (Peso 20%):** O quão fácil e confiável é usar a tabela na análise específica.
+* **Sub-Critério C (10%):** **Completude contextual** - baixa taxa de nulos apenas nos campos semanticamente relevantes para o problema.
+* **Sub-Critério D (10%):** **Adequação prática** - tipo de dado e quantidade de registros adequados para a análise pretendida.
+* **Diretriz de Penalidade:** A completude só é valorizada quando associada a dados semanticamente relevantes. Tabelas com muitas colunas irrelevantes devem ser penalizadas, mesmo que tenham alta completude geral.
+
+FOCO PRIMÁRIO: A relevância semântica deve ser o fator determinante. Tabelas com baixa conexão direta com o problema do usuário devem receber scores baixos (abaixo de 30), independentemente de sua completude ou quantidade de dados.
 
 **AJUSTES DE FOCO DO USUÁRIO (Interação/Chat):**
 --- RESUMO ESTRUTURADO DA INTERAÇÃO DE REFINAMENTO ---
 A conversa indica que o usuário quer que a LLM avaliadora:
-* Priorizar a identificação geral de condições cardíacas em registros de pacientes.
-* Incluir informações sobre sintomas relatados e classificações textuais relacionadas a hipertensão e outras condições cardiovasculares.
-* Ignorar variáveis específicas, focando em uma abordagem mais abrangente.
+* Priorize dados populacionais específicos sobre saúde cardiovascular em grupos etários ou de gênero.
+* Exclua tabelas que contenham códigos ou identificadores irrelevantes.
+* Inclua fatores de risco como hipertensão, diabetes e obesidade, juntamente com dados sobre intervenções preventivas.
+* Busque comparações entre grupos populacionais em relação à prevalência de doenças cardíacas e eficácia de métodos de prevenção.
+* Inclua dados sobre tendências ao longo do tempo e resultados de intervenções de saúde pública.
 
-**Prioridade Final:** Identificar a presença de doenças cardiovasculares de forma geral nos registros.
+**Prioridade Final:** Focar na identificação de doenças cardiovasculares com dados populacionais e estratégias de prevenção.
 --- FIM DO RESUMO ---
 
 **METADADOS DA TABELA A SER AVALIADA (JSON):**
@@ -67,7 +81,7 @@ json
 {
   "tabela": "TABELA_DESCONHECIDA",
   "chave_primaria": "NÃO ENCONTRADA",
-  "score_relevancia": 83, 
+  "score_relevancia":00,
   "colunas_contribuintes": ["coluna1", "coluna2"],
   "justificativa": "Score X devido a [razões principais]. A tabela possui [características de qualidade]."
 }

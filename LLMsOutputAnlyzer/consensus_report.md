@@ -1,6 +1,6 @@
 # Relatório de Análise de Consenso de Classificação de Tabelas
     
-**Data de Execução:** 2025-10-30 19:48:18  
+**Data de Execução:** 2025-11-06 15:15:03  
 **LLMs Analisadas:** DEEPSEEK, MISTRAL, OPENAI  
 **Total de Tabelas Consolidadas:** 10
     
@@ -10,12 +10,12 @@
     
 | Métrica | Valor | Unidade |
 |---------|-------|---------|
-| **Score Médio Geral** | 36.8 | Pontos |
-| **Desvio Padrão Geral do Score Médio** | 21.13 | Pontos |
-| **Concordância Total de Categoria** | 0.0% | Percentual |
-| **Concordância de Score (Range <= 10)** | 10.0% | Percentual |
-| **Tabelas de Alto Consenso (STD <= 5)** | 0 | Contagem |
-| **Tabelas de Baixo Consenso (STD > 15)** | 4 | Contagem |
+| **Score Médio Geral** | 16.77 | Pontos |
+| **Desvio Padrão Geral do Score Médio** | 11.92 | Pontos |
+| **Concordância Total de Categoria** | 70.0% | Percentual |
+| **Concordância de Score (Range <= 10)** | 70.0% | Percentual |
+| **Tabelas de Alto Consenso (STD <= 5)** | 7 | Contagem |
+| **Tabelas de Baixo Consenso (STD > 15)** | 2 | Contagem |
     
 ---
     
@@ -25,16 +25,16 @@ Esta seção lista as 10 tabelas onde as LLMs discordaram mais significativament
     
 | Tabela | Schema | Média Score | Desvio Padrão | Categoria Consenso | Score DEEPSEEK | Score MISTRAL | Score OPENAI |
 |--------|--------|-------------|---------------|--------------------|--- | --- | ---|
-| `tb_acomp_cidadaos_vinculados` | public | 55.0 | 37.8 | Discordância | 12 | 70 | 83 |
-| `tb_acomp_cidadaos_vinc_prcs` | public | 48.33 | 35.53 | Discordância | 12 | 50 | 83 |
-| `tb_auditoria_evento` | public | 35.67 | 20.65 | Discordância | 12 | 50 | 45 |
-| `TB_MIGRACAO_DADOS` | public | 25.67 | 17.21 | Discordância | 12 | 20 | 45 |
-| `ta_ad_cidadao` | public | 59.0 | 13.53 | Discordância | 72 | 60 | 45 |
-| `tb_beneficio` | public | 16.0 | 12.17 | Discordância | 8 | 30 | 10 |
-| `tb_dim_imunobiologico` | public | 22.33 | 9.29 | Discordância | 12 | 30 | 25 |
-| `tb_dim_dose_imunobiologico` | public | 17.67 | 8.74 | Discordância | 8 | 20 | 25 |
-| `ta_evolucao_subjetivo` | public | 74.33 | 7.77 | Discordância | 72 | 68 | 83 |
-| `tb_alim_bebida` | public | 14.0 | 5.29 | Discordância | 12 | 20 | 10 |
+| `ta_evolucao_subjetivo` | public | 45.0 | 17.32 | Discordância | 35 | 35 | 65 |
+| `tb_acomp_cidadaos_vinculados` | public | 26.67 | 16.07 | Discordância | 15 | 20 | 45 |
+| `ta_ad_cidadao` | public | 16.67 | 7.64 | Discordância | 15 | 10 | 25 |
+| `tb_acomp_cidadaos_vinc_prcs` | public | 10.0 | 5.0 | Muito Baixa | 5 | 10 | 15 |
+| `TB_MIGRACAO_DADOS` | public | 8.33 | 2.89 | Muito Baixa | 5 | 10 | 10 |
+| `tb_dim_imunobiologico` | public | 11.67 | 2.89 | Muito Baixa | 15 | 10 | 10 |
+| `tb_dim_dose_imunobiologico` | public | 8.33 | 2.89 | Muito Baixa | 5 | 10 | 10 |
+| `tb_alim_bebida` | public | 23.33 | 2.89 | Baixa | 25 | 20 | 25 |
+| `tb_auditoria_evento` | public | 8.33 | 2.89 | Muito Baixa | 5 | 10 | 10 |
+| `tb_beneficio` | public | 9.33 | 1.15 | Muito Baixa | 8 | 10 | 10 |
 
     
 ---
@@ -43,44 +43,44 @@ Esta seção lista as 10 tabelas onde as LLMs discordaram mais significativament
     
 Para as 3 tabelas com maior discordância, as justificativas de cada LLM são listadas abaixo para análise manual.
     
+### Tabela: `ta_evolucao_subjetivo`
+
+**DEEPSEEK (Score: 35):**
+> Score 35 devido à presença limitada de dados sobre hipertensão arterial no campo ds_subjetivo, que representa apenas uma pequena fração dos registros. A tabela contém principalmente identificadores e metadados de auditoria irrelevantes, com alta taxa de nulos (25%) no único campo semanticamente relevante. A conexão direta com doenças cardiovasculares é fraca e esparsa.
+
+**MISTRAL (Score: 35):**
+> Score 35 devido à presença de termos relacionados a hipertensão arterial na coluna 'ds_subjetivo'. A tabela possui dados relevantes, mas a maioria das informações é irrelevante para o estudo de doenças cardiovasculares. A coluna 'ds_subjetivo' contém termos como 'HIPERTENSÃO ARTERIAL', que são relevantes, mas a tabela como um todo não é específica o suficiente para o problema do usuário.
+
+**OPENAI (Score: 65):**
+> Score 65 devido à presença de informações sobre hipertensão arterial e acompanhamento de saúde. A tabela possui alta completude, mas a falta de dados diretos sobre obesidade e diabetes limita sua relevância.
+
+
+---
+
 ### Tabela: `tb_acomp_cidadaos_vinculados`
 
-**DEEPSEEK (Score: 12):**
-> Score baixo devido à ausência completa de variáveis relacionadas a doenças cardiovasculares, pressão arterial ou diagnósticos médicos. A tabela contém apenas dados demográficos básicos e endereços, sem informações clínicas relevantes para identificar condições cardíacas. Alta completude em dados pessoais, mas irrelevante para o objetivo de pesquisa.
+**DEEPSEEK (Score: 15):**
+> Score baixo devido à ausência completa de dados clínicos sobre doenças cardiovasculares, fatores de risco ou indicadores de saúde relevantes. A tabela contém apenas dados demográficos básicos e informações administrativas, sem conexão direta com detecção de doenças cardíacas. Apesar da boa completude geral, os dados são semanticamente irrelevantes para o objetivo do usuário.
 
-**MISTRAL (Score: 70):**
-> Score 70 devido à presença de colunas relevantes como nome, data de nascimento, sexo e identificadores únicos. No entanto, a tabela carece de colunas específicas relacionadas às doenças cardiovasculares, o que limita seu potencial para o estudo em questão.
-
-**OPENAI (Score: 83):**
-> Score 83 devido à presença de registros de cidadãos com diagnósticos de doenças cardiovasculares. A tabela possui alta completude e adequação, com 0% de nulos em colunas chave.
-
-
----
-
-### Tabela: `tb_acomp_cidadaos_vinc_prcs`
-
-**DEEPSEEK (Score: 12):**
-> Score baixo devido à ausência completa de dados clínicos sobre doenças cardiovasculares. A tabela contém apenas metadados de processamento e datas, sem informações sobre diagnósticos, sintomas ou variáveis cardiovasculares. Apesar da boa completude (0% nulos), os dados são irrelevantes para identificar condições cardíacas em registros de pacientes.
-
-**MISTRAL (Score: 50):**
-> Score 50 devido à presença da palavra-chave 'PROCESSADO' relacionada ao processamento de registros de pessoas. No entanto, a tabela não possui colunas diretamente ligadas às doenças cardiovasculares ou à pressão arterial, o que impacta negativamente o score.
-
-**OPENAI (Score: 83):**
-> Score 83 devido à presença de registros processados e datas de início e fim, que são relevantes para o acompanhamento de doenças cardiovasculares. A tabela possui alta completude e adequação, com 867 registros sem dados nulos.
-
-
----
-
-### Tabela: `tb_auditoria_evento`
-
-**DEEPSEEK (Score: 12):**
-> Score baixo devido à ausência de termos específicos de doenças cardiovasculares. A tabela é de auditoria de sistema, não contendo dados clínicos diretos. Apenas a coluna ds_detalhes poderia conter informações textuais relacionadas, mas sem evidências de termos cardíacos nos metadados. Alta completude geral, mas irrelevante para o contexto médico.
-
-**MISTRAL (Score: 50):**
-> Score 50 devido à presença da coluna ds_detalhes, que pode conter informações relacionadas a sintomas e classificações textuais de doenças cardiovasculares. No entanto, a tabela não possui colunas diretamente relacionadas ao foco de desfecho ou às variáveis-chave do estudo, o que justifica um score moderado.
+**MISTRAL (Score: 20):**
+> Score 20 devido a falta de informações específicas sobre doenças cardiovasculares. A tabela possui dados demográficos básicos como idade, sexo e raça, que são relevantes, mas não suficientes para detectar doenças cardíacas. A tabela não contém informações sobre pressão arterial, colesterol, obesidade ou outros fatores de risco cardiovascular.
 
 **OPENAI (Score: 45):**
-> Score 45 devido à falta de variáveis diretamente relacionadas a doenças cardiovasculares. A tabela possui alta completude, mas a adequação é baixa, pois não contém informações relevantes sobre diagnósticos ou sintomas.
+> Score 45 devido à presença de dados demográficos relevantes, mas falta de informações diretas sobre fatores de risco cardiovascular. A tabela possui alta completude, mas muitos campos são irrelevantes para a detecção de doenças cardíacas.
+
+
+---
+
+### Tabela: `ta_ad_cidadao`
+
+**DEEPSEEK (Score: 15):**
+> Score baixo devido à ausência de dados específicos sobre doenças cardiovasculares, fatores de risco ou indicadores de saúde relevantes. A tabela contém principalmente campos administrativos e identificadores, com apenas um código CID-10 genérico (9207) que não está diretamente relacionado aos termos-chave do usuário. A maioria das colunas são irrelevantes para detecção de doenças cardíacas.
+
+**MISTRAL (Score: 10):**
+> Score baixo devido à falta de conexão direta com doenças cardiovasculares. A tabela contém códigos CID-10 sem descrições claras, não atendendo aos critérios de relevância semântica. A qualidade dos dados é limitada pela ausência de informações específicas sobre fatores de risco cardiovascular.
+
+**OPENAI (Score: 25):**
+> Score 25 devido à presença de um código CID principal que pode estar relacionado a doenças cardiovasculares, mas falta informação sobre fatores de risco como pressão arterial e obesidade. A tabela tem baixa completude e relevância semântica para o problema do usuário.
 
 
 ---

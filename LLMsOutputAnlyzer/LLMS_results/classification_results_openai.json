@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "execution_date": "2025-10-30 19:13:53",
+    "execution_date": "2025-11-06 15:10:18",
     "llm_provider": "OpenAI",
     "model": "gpt-4o-mini",
     "temperature": 0.1,
@@ -12,16 +12,16 @@
   "summary": {
     "total_tables": 10,
     "score_statistics": {
-      "avg": 45.4,
+      "avg": 22.5,
       "min": 10,
-      "max": 83,
-      "median": 45
+      "max": 65,
+      "median": 15
     },
     "score_distribution": {
-      "high_relevance_80_100": 3,
-      "medium_relevance_50_79": 0,
-      "low_relevance_20_49": 5,
-      "very_low_relevance_0_19": 2
+      "high_relevance_80_100": 0,
+      "medium_relevance_50_79": 1,
+      "low_relevance_20_49": 3,
+      "very_low_relevance_0_19": 6
     },
     "errors": 0
   },
@@ -29,12 +29,9 @@
     {
       "tabela": "TB_MIGRACAO_DADOS",
       "chave_primaria": "installed_rank",
-      "score_relevancia": 45,
-      "colunas_contribuintes": [
-        "description",
-        "installed_by"
-      ],
-      "justificativa": "Score 45 devido à ausência de variáveis diretamente relacionadas a doenças cardiovasculares e à presença de dados irrelevantes. A tabela possui alta completude, mas a adequação é baixa para o foco do estudo.",
+      "score_relevancia": 10,
+      "colunas_contribuintes": [],
+      "justificativa": "Score 10 devido à ausência de informações relevantes sobre doenças cardiovasculares. A tabela contém dados técnicos e de instalação, sem relação com fatores de risco ou saúde cardiovascular.",
       "table_name": "TB_MIGRACAO_DADOS",
       "schema": "public",
       "row_count": 825
@@ -42,13 +39,13 @@
     {
       "tabela": "tb_acomp_cidadaos_vinculados",
       "chave_primaria": "co_seq_acomp_cidadaos_vinc",
-      "score_relevancia": 83,
+      "score_relevancia": 45,
       "colunas_contribuintes": [
-        "st_possui_fci",
         "dt_nascimento_cidadao",
-        "no_cidadao"
+        "no_sexo_cidadao",
+        "st_possui_fci"
       ],
-      "justificativa": "Score 83 devido à presença de registros de cidadãos com diagnósticos de doenças cardiovasculares. A tabela possui alta completude e adequação, com 0% de nulos em colunas chave.",
+      "justificativa": "Score 45 devido à presença de dados demográficos relevantes, mas falta de informações diretas sobre fatores de risco cardiovascular. A tabela possui alta completude, mas muitos campos são irrelevantes para a detecção de doenças cardíacas.",
       "table_name": "tb_acomp_cidadaos_vinculados",
       "schema": "public",
       "row_count": 15724
@@ -56,12 +53,9 @@
     {
       "tabela": "tb_dim_dose_imunobiologico",
       "chave_primaria": "co_seq_dim_dose_imunobiologico",
-      "score_relevancia": 25,
-      "colunas_contribuintes": [
-        "no_dose_imunobiologico",
-        "ds_filtro"
-      ],
-      "justificativa": "Score baixo devido à falta de informações diretamente relacionadas a doenças cardiovasculares. A tabela contém dados sobre doses de imunobiológicos, mas não aborda condições cardíacas ou hipertensão.",
+      "score_relevancia": 10,
+      "colunas_contribuintes": [],
+      "justificativa": "Score 10 devido à falta de conexão com doenças cardiovasculares. A tabela contém dados sobre doses de imunobiológicos, que não são relevantes para a detecção de doenças cardíacas.",
       "table_name": "tb_dim_dose_imunobiologico",
       "schema": "public",
       "row_count": 82
@@ -69,12 +63,9 @@
     {
       "tabela": "tb_dim_imunobiologico",
       "chave_primaria": "co_seq_dim_imunobiologico",
-      "score_relevancia": 25,
-      "colunas_contribuintes": [
-        "sg_imunobiologico",
-        "no_imunobiologico"
-      ],
-      "justificativa": "Score baixo devido à falta de dados diretamente relacionados a doenças cardiovasculares. A tabela possui registros válidos, mas não contém informações relevantes para a pesquisa.",
+      "score_relevancia": 10,
+      "colunas_contribuintes": [],
+      "justificativa": "Score 10 devido à ausência de informações relevantes sobre doenças cardiovasculares. A tabela contém dados sobre vacinas, que não se relacionam com hipertensão, obesidade ou diabetes.",
       "table_name": "tb_dim_imunobiologico",
       "schema": "public",
       "row_count": 40
@@ -82,11 +73,11 @@
     {
       "tabela": "ta_ad_cidadao",
       "chave_primaria": "co_seq_taadcidadao",
-      "score_relevancia": 45,
+      "score_relevancia": 25,
       "colunas_contribuintes": [
         "co_cid10_principal"
       ],
-      "justificativa": "Score 45 devido à presença de um código CID principal relacionado a doenças cardiovasculares. A tabela possui alta taxa de nulos e apenas um registro, limitando sua utilidade para análise abrangente.",
+      "justificativa": "Score 25 devido à presença de um código CID principal que pode estar relacionado a doenças cardiovasculares, mas falta informação sobre fatores de risco como pressão arterial e obesidade. A tabela tem baixa completude e relevância semântica para o problema do usuário.",
       "table_name": "ta_ad_cidadao",
       "schema": "public",
       "row_count": 1
@@ -94,12 +85,12 @@
     {
       "tabela": "ta_evolucao_subjetivo",
       "chave_primaria": "co_seq_taevolucaosubjetivo",
-      "score_relevancia": 83,
+      "score_relevancia": 65,
       "colunas_contribuintes": [
         "ds_subjetivo",
-        "co_tipo_auditoria"
+        "dt_auditoria"
       ],
-      "justificativa": "Score 83 devido à presença de registros de hipertensão arterial e outros sintomas cardiovasculares. A tabela possui alta completude e adequação, com 0% de dados nulos.",
+      "justificativa": "Score 65 devido à presença de informações sobre hipertensão arterial e acompanhamento de saúde. A tabela possui alta completude, mas a falta de dados diretos sobre obesidade e diabetes limita sua relevância.",
       "table_name": "ta_evolucao_subjetivo",
       "schema": "public",
       "row_count": 198642
@@ -107,12 +98,9 @@
     {
       "tabela": "tb_acomp_cidadaos_vinc_prcs",
       "chave_primaria": "co_seq_acomp_cidad_vinc_prcs",
-      "score_relevancia": 83,
-      "colunas_contribuintes": [
-        "dt_inicio",
-        "dt_fim"
-      ],
-      "justificativa": "Score 83 devido à presença de registros processados e datas de início e fim, que são relevantes para o acompanhamento de doenças cardiovasculares. A tabela possui alta completude e adequação, com 867 registros sem dados nulos.",
+      "score_relevancia": 15,
+      "colunas_contribuintes": [],
+      "justificativa": "Score 15 devido à ausência de informações relevantes sobre doenças cardiovasculares. A tabela contém apenas dados de processamento e não inclui indicadores de saúde como pressão arterial, obesidade ou diabetes.",
       "table_name": "tb_acomp_cidadaos_vinc_prcs",
       "schema": "public",
       "row_count": 867
@@ -120,9 +108,11 @@
     {
       "tabela": "tb_alim_bebida",
       "chave_primaria": "co_alim_bebida",
-      "score_relevancia": 10,
-      "colunas_contribuintes": [],
-      "justificativa": "Score baixo devido à falta de relação com doenças cardiovasculares. A tabela contém dados sobre alimentos e bebidas, não abordando variáveis chave como pressão arterial.",
+      "score_relevancia": 25,
+      "colunas_contribuintes": [
+        "ds_alim_bebida"
+      ],
+      "justificativa": "Score 25 devido à falta de dados diretos sobre fatores de risco cardiovascular como hipertensão e obesidade. A tabela possui informações sobre alimentos, mas não aborda diretamente a detecção de doenças cardíacas.",
       "table_name": "tb_alim_bebida",
       "schema": "public",
       "row_count": 10
@@ -130,12 +120,9 @@
     {
       "tabela": "tb_auditoria_evento",
       "chave_primaria": "co_seq_auditoria_evento",
-      "score_relevancia": 45,
-      "colunas_contribuintes": [
-        "tp_evento",
-        "ds_detalhes"
-      ],
-      "justificativa": "Score 45 devido à falta de variáveis diretamente relacionadas a doenças cardiovasculares. A tabela possui alta completude, mas a adequação é baixa, pois não contém informações relevantes sobre diagnósticos ou sintomas.",
+      "score_relevancia": 10,
+      "colunas_contribuintes": [],
+      "justificativa": "Score 10 devido à falta de informações relevantes sobre doenças cardiovasculares. A tabela contém dados de auditoria sem conexão direta com fatores de risco ou saúde cardiovascular.",
       "table_name": "tb_auditoria_evento",
       "schema": "public",
       "row_count": 3125068
@@ -145,7 +132,7 @@
       "chave_primaria": "co_beneficio",
       "score_relevancia": 10,
       "colunas_contribuintes": [],
-      "justificativa": "Score baixo devido à falta de relação com doenças cardiovasculares. A tabela contém dados sobre benefícios sociais, sem informações relevantes sobre saúde ou condições cardíacas.",
+      "justificativa": "Score 10 devido à ausência de informações relevantes sobre doenças cardiovasculares. A tabela contém dados sobre benefícios sociais, que não se relacionam com os fatores de risco ou condições cardíacas.",
       "table_name": "tb_beneficio",
       "schema": "public",
       "row_count": 7

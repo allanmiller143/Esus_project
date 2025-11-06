@@ -1,6 +1,6 @@
 # Relatório de Classificação de Tabelas - DeepSeek
     
-**Data de Execução:** 2025-10-30 17:53:13  
+**Data de Execução:** 2025-11-06 15:13:26  
 **Modelo:** deepseek-coder  
 **LLM Provider:** DeepSeek  
 **Temperatura:** 0.1
@@ -12,9 +12,9 @@
 | Métrica | Valor |
 |---------|-------|
 | **Total de Tabelas** | 10 |
-| **Score Médio** | 23.20 |
-| **Score Mínimo** | 8 |
-| **Score Máximo** | 72 |
+| **Score Médio** | 13.30 |
+| **Score Mínimo** | 5 |
+| **Score Máximo** | 35 |
 | **Erros de Processamento** | 0 |
     
 ## Distribuição de Relevância por Score
@@ -22,8 +22,8 @@
 | Categoria | Score Range | Quantidade | Percentual |
 |-----------|-------------|------------|------------|
 | **Alta Relevância** | 80-100 | 0 | 0.0% |
-| **Média Relevância** | 50-79 | 2 | 20.0% |
-| **Baixa Relevância** | 20-49 | 0 | 0.0% |
+| **Média Relevância** | 50-79 | 0 | 0.0% |
+| **Baixa Relevância** | 20-49 | 2 | 20.0% |
 | **Muito Baixa Relevância** | 0-19 | 8 | 80.0% |
     
 ---
@@ -41,12 +41,11 @@ Total: **0** tabelas
     
 ## Tabelas de Média Relevância (Score 50-79)
     
-Total: **2** tabelas
+Total: **0** tabelas
     
 | # | Tabela | Row Count | Score | Justificativa |
 |---|--------|-----------|-------|---------------|
-| 1 | `ta_ad_cidadao` | 1 | 72 | Score 72 devido à presença de colunas de CID-10 para identificação de diagnósticos cardiovasculares,... |
-| 2 | `ta_evolucao_subjetivo` | 198,642 | 72 | Score 72 devido à presença direta de termos cardiovasculares como 'HIPERTENSÃO ARTERIAL' e 'PA' na c... |
+| - | Nenhuma tabela encontrada | - | - | - |
 
     
 ---
@@ -61,7 +60,7 @@ Total: **2** tabelas
     
 ```json
 {
-  "execution_date": "2025-10-30 17:53:13",
+  "execution_date": "2025-11-06 15:13:26",
   "llm_provider": "DeepSeek",
   "model": "deepseek-coder",
   "temperature": 0.1,

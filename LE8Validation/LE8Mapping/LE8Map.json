@@ -1,0 +1,203 @@
+{
+  "source": {
+    "title": "Life's Essential 8 (AHA) - Mapeamento adaptado para e-SUS (Versão Final)",
+    "reference": "Lloyd-Jones et al., Circulation 2022 (Life’s Essential 8)",
+    "description": "Mapeamento científico e operacional do Life’s Essential 8, com termos compostos separados por espaço para compatibilidade com a tokenização de metadados do e-SUS."
+  },
+  "components": {
+    "1_dieta": {
+      "name_pt": "Dieta / Alimentação Saudável",
+      "description_pt": "Avalia o padrão alimentar com base em consumo de frutas, vegetais, grãos integrais, legumes, peixes e redução de sódio, açúcares e gorduras saturadas/trans.",
+      "key_terms_pt": [
+        "dieta","alimentacao","nutricao","padrao alimentar",
+        "saudavel","refeicao","fruta","vegetal","leguminosa","grao","integral","peixe",
+        "fibras","proteina magra","industrializado","ultraprocessado","fast food",
+        "sodio","sal","acucar","bebida acucarada","refrigerante",
+        "dash","mediterranea","mepa","hei"
+      ],
+      "proxy_terms": [
+        "consumo sodio","consumo acucar","consumo gordura trans",
+        "freq refeicoes","variacao alimentar","seguimento dietetico",
+        "educacao nutricional","avaliacao nutricional","plano alimentar"
+      ],
+      "measurement_fields": [
+        "freq frutas","freq vegetais","consumo legumes","consumo peixe",
+        "consumo integral","consumo bebida acucarada","consumo sal",
+        "avaliacao dietetica","score dieta","mepa","dash score","hei score"
+      ],
+      "lab_tests_or_codes": [],
+      "treatment_indicators": [
+        "encaminhamento nutricionista","consulta nutricionista","programa peso"
+      ],
+      "notes": "AHA recomenda padrões DASH, MEPA ou HEI-2015. O ideal é ≥4 grupos alimentares positivos e <2 negativos."
+    },
+    "2_atividade_fisica": {
+      "name_pt": "Atividade Física",
+      "description_pt": "Mede tempo e intensidade de atividades moderadas a vigorosas (≥150 min/semana). Inclui lazer, ocupação, transporte e atividades domésticas.",
+      "key_terms_pt": [
+        "atividade fisica","exercicio",
+        "atividade moderada","atividade vigorosa","minutos semana",
+        "sedentarismo","sedentario","caminhada","corrida","bicicleta","esporte",
+        "academia","treino","atividade profissional","movimento corporal"
+      ],
+      "proxy_terms": [
+        "tempo sentado","horas sedentarias","nivel atividade","score pa",
+        "questionario atividade","passos","pedometer","wearable"
+      ],
+      "measurement_fields": [
+        "minutos moderados","minutos vigorosos","minutos equivalentes",
+        "passos dia","nivel atividade","atividade semanal"
+      ],
+      "lab_tests_or_codes": [],
+      "treatment_indicators": [
+        "encaminhamento atividade","programa reabilitacao","fisioterapia"
+      ],
+      "notes": "AHA: 100 pts ≥150 min/semana; 75 pts 75–149; 50 pts 1–74; 0 pts 0 min."
+    },
+    "3_nicotina": {
+      "name_pt": "Exposição à Nicotina / Tabagismo",
+      "description_pt": "Considera uso atual/passado de produtos de tabaco e nicotina (cigarro, narguilé, cigarros eletrônicos) e exposição passiva.",
+      "key_terms_pt": [
+        "tabagismo","tabaco","fumo","cigarro","fumante","ex fumante",
+        "narguile","charuto","cachimbo","vape","vapear",
+        "cigarro eletronico","e cigarro","nicotina","vaping","fumo passivo"
+      ],
+      "proxy_terms": [
+        "anos fumo","tempo uso tabaco","fumante domestico","fumante atual",
+        "fumante antigo","exposicao fumo","fumante casa"
+      ],
+      "measurement_fields": [
+        "historico tabagismo","tabagismo status","fumante atual",
+        "fumante antigo","uso vape","uso tabaco"
+      ],
+      "lab_tests_or_codes": [
+        "cotinina soro","cotinina urina"
+      ],
+      "treatment_indicators": [
+        "tratamento cessacao","terapia substituicao nicotina","uso nicotina goma"
+      ],
+      "notes": "AHA: 100 pts nunca fumou; 50 pts ex-fumante >12m; 0 pts fumante atual."
+    },
+    "4_sono": {
+      "name_pt": "Saúde do Sono",
+      "description_pt": "Duração e regularidade do sono (ideal: 7–9 h/noite em adultos), qualidade e presença de distúrbios como apneia.",
+      "key_terms_pt": [
+        "sono","horas sono","duracao sono","qualidade sono","insonia","apneia",
+        "ronco","sonolencia diurna","regularidade sono","horario sono","descanso"
+      ],
+      "proxy_terms": [
+        "score sono","psqi","epworth","apneia suspeita","uso cpap",
+        "tratamento apneia","fragmentacao sono"
+      ],
+      "measurement_fields": [
+        "media horas sono","horas por noite","duracao media sono",
+        "psqi score","epworth score","uso cpap"
+      ],
+      "lab_tests_or_codes": [
+        "polissonografia","actigrafia"
+      ],
+      "treatment_indicators": [
+        "uso cpap","encaminhamento sono","tratamento sono"
+      ],
+      "notes": "AHA: 100 pts 7–<9h; 70 pts 6–<7h ou 9–<10h; 40 pts 5–<6h ou 10–<11h; 0 pts <5h ou ≥11h."
+    },
+    "5_imc": {
+      "name_pt": "Índice de Massa Corporal (IMC)",
+      "description_pt": "Relação peso/altura² (kg/m²); indicador de adiposidade e risco cardiometabólico.",
+      "key_terms_pt": [
+        "imc","indice massa corporal","peso","altura","circunferencia abdominal",
+        "circunferencia cintura","obesidade","sobrepeso","baixo peso","kg","m2"
+      ],
+      "proxy_terms": [
+        "circunferencia quadril","relacao cintura quadril","composicao corporal",
+        "percentil bmi","peso habitual"
+      ],
+      "measurement_fields": [
+        "peso kg","altura m","imc valor","circ cintura cm"
+      ],
+      "lab_tests_or_codes": [],
+      "treatment_indicators": [
+        "programa perda peso","encaminhamento nutricionista","cirurgia bariatrica"
+      ],
+      "notes": "AHA: 100 pts IMC<25; 70 pts 25–29.9; 40 pts 30–34.9; 0 pts ≥40."
+    },
+    "6_lipideos": {
+      "name_pt": "Lipídios Sanguíneos / Colesterol",
+      "description_pt": "Baseado em colesterol não-HDL; inclui LDL, HDL e triglicerídeos.",
+      "key_terms_pt": [
+        "colesterol","lipidios","hdl","ldl","vldl","nao hdl",
+        "triglicerideo","perfil lipidico","colesterol total"
+      ],
+      "proxy_terms": [
+        "estatinas","tratamento lipidico","uso estatina","painel lipidico"
+      ],
+      "measurement_fields": [
+        "hdl","ldl","triglicerideos","colesterol total","non hdl","nao hdl"
+      ],
+      "lab_tests_or_codes": [
+        "colesterol total mgdl","hdl mgdl","ldl mgdl","tg mgdl","non hdl mgdl"
+      ],
+      "treatment_indicators": [
+        "uso estatina","tratamento lipidico","estatina prescrita"
+      ],
+      "notes": "AHA: 100 pts non-HDL<130; 60 pts 130–159; 40 pts 160–189; 20 pts 190–219; 0 pts ≥220."
+    },
+    "7_glicose": {
+      "name_pt": "Glicose Sanguínea / Diabetes",
+      "description_pt": "Usa glicemia de jejum e HbA1c; inclui histórico e controle de diabetes.",
+      "key_terms_pt": [
+        "glicose","glicemia","hba1c","hemoglobina glicada","jejum",
+        "diabetes","prediabetes","hiperglicemia","hipoglicemia","insulina"
+      ],
+      "proxy_terms": [
+        "uso insulina","uso metformina","diagnostico diabetes","monitoramento glicemia"
+      ],
+      "measurement_fields": [
+        "hba1c","glicemia jejum","glicemia random","glicose mgdl"
+      ],
+      "lab_tests_or_codes": [
+        "hba1c percent","fbg mgdl","glicose mgdl"
+      ],
+      "treatment_indicators": [
+        "uso metformina","uso insulina","tratamento diabetes"
+      ],
+      "notes": "AHA: 100 pts HbA1c<5.7%; 60 pts 5.7–6.4%; 40 pts 6.5–6.9%; 20 pts 7.0–7.9%; 0 pts ≥8.0%."
+    },
+    "8_pressao_arterial": {
+      "name_pt": "Pressão Arterial / Hipertensão",
+      "description_pt": "Mede valores de PAS e PAD; considera controle e tratamento antihipertensivo.",
+      "key_terms_pt": [
+        "pressao","pa","pas","pad","sistolica","diastolica",
+        "mmhg","hipertensao","hipotensao","pressao media"
+      ],
+      "proxy_terms": [
+        "monitorizacao pressao","pressao domiciliar","auto medicao pa",
+        "uso antihipertensivo"
+      ],
+      "measurement_fields": [
+        "pas","pad","pa sistolica","pa diastolica","pressao mmhg","pressao media"
+      ],
+      "lab_tests_or_codes": [],
+      "treatment_indicators": [
+        "uso antihipertensivo","ramipril","enalapril","losartana","hidroclorotiazida"
+      ],
+      "notes": "AHA: 100 pts <120/<80; 75 pts 120–129/<80; 50 pts 130–139/80–89; 25 pts 140–159/90–99; 0 pts ≥160/≥100."
+    }
+  },
+  "context": {
+    "social_determinants": {
+      "name_pt": "Determinantes Sociais da Saúde (SDOH)",
+      "description_pt": "Condições socioeconômicas e ambientais que influenciam a saúde cardiovascular.",
+      "key_terms_pt": [
+        "renda","educacao","ocupacao","trabalho","moradia","habitacao",
+        "saneamento","seguranca alimentar","acesso saude","transporte","bairro",
+        "rural","urbano","apoio social"
+      ],
+      "measurement_fields": [
+        "escolaridade","renda familiar","condicao moradia","acesso saude",
+        "programa social","zoneamento"
+      ],
+      "notes": "SDOH são contextuais, usados apenas para complementar análise de cobertura e associação indireta."
+    }
+  }
+}

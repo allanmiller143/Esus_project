@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "execution_date": "2025-10-30 19:48:17",
+    "execution_date": "2025-11-06 15:15:02",
     "llms_analisadas": [
       "deepseek",
       "mistral",
@@ -15,155 +15,135 @@
       "mistral",
       "openai"
     ],
-    "score_medio_geral": 36.8,
-    "score_std_geral": 21.13,
-    "percentual_concordancia_categoria": 0.0,
-    "percentual_concordancia_score_10": 10.0,
-    "tabelas_alto_consenso": 0,
-    "tabelas_baixo_consenso": 4
+    "score_medio_geral": 16.77,
+    "score_std_geral": 11.92,
+    "percentual_concordancia_categoria": 70.0,
+    "percentual_concordancia_score_10": 70.0,
+    "tabelas_alto_consenso": 7,
+    "tabelas_baixo_consenso": 2
   },
   "table_analysis": [
     {
       "table_name": "TB_MIGRACAO_DADOS",
       "schema": "public",
-      "score_deepseek": 12,
-      "justificativa_deepseek": "Score baixo devido à ausência de dados clínicos sobre doenças cardiovasculares. A tabela é um log de migração de banco de dados sem informações de pacientes, diagnósticos ou variáveis clínicas. Embora tenha completude alta (0% nulos na maioria das colunas), não contém registros médicos relevantes para o estudo.",
+      "score_deepseek": 5,
+      "justificativa_deepseek": "Score 5 devido à ausência total de conexão semântica com doenças cardiovasculares. A tabela é um log de migração de banco de dados com metadados técnicos sobre scripts SQL/JDBC. Apenas algumas descrições como 'Ciap' e 'RacaCor' têm relação tangencial com saúde, mas sem dados específicos sobre fatores de risco cardiovasculares.",
       "colunas_deepseek": [
-        "description",
-        "script"
-      ],
-      "score_mistral": 20,
-      "justificativa_mistral": "Score 20 devido à presença da palavra-chave 'atividade coletiva' relacionada a saúde, mas a tabela não está diretamente ligada ao foco de desfecho ou às variáveis-chave do estudo. A tabela possui uma alta taxa de registros (825) e uma baixa porcentagem de nulos (18.42%).",
-      "colunas_mistral": [
         "description"
       ],
-      "score_openai": 45,
-      "justificativa_openai": "Score 45 devido à ausência de variáveis diretamente relacionadas a doenças cardiovasculares e à presença de dados irrelevantes. A tabela possui alta completude, mas a adequação é baixa para o foco do estudo.",
-      "colunas_openai": [
-        "description",
-        "installed_by"
-      ],
-      "score_media": 25.67,
-      "score_std": 17.21,
+      "score_mistral": 10,
+      "justificativa_mistral": "Score 10 devido a ausência de relação com doenças cardiovasculares. A tabela possui informações sobre migração de dados e scripts, sem qualquer conexão com os termos do estudo ou fatores de risco cardiovascular.",
+      "colunas_mistral": [],
+      "score_openai": 10,
+      "justificativa_openai": "Score 10 devido à ausência de informações relevantes sobre doenças cardiovasculares. A tabela contém dados técnicos e de instalação, sem relação com fatores de risco ou saúde cardiovascular.",
+      "colunas_openai": [],
+      "score_media": 8.33,
+      "score_std": 2.89,
       "relevancia_deepseek": "Muito Baixa",
-      "relevancia_mistral": "Baixa",
-      "relevancia_openai": "Baixa",
-      "concordancia_categoria": false,
-      "concordancia_score_10": false
+      "relevancia_mistral": "Muito Baixa",
+      "relevancia_openai": "Muito Baixa",
+      "concordancia_categoria": true,
+      "concordancia_score_10": true
     },
     {
       "table_name": "tb_acomp_cidadaos_vinculados",
       "schema": "public",
-      "score_deepseek": 12,
-      "justificativa_deepseek": "Score baixo devido à ausência completa de variáveis relacionadas a doenças cardiovasculares, pressão arterial ou diagnósticos médicos. A tabela contém apenas dados demográficos básicos e endereços, sem informações clínicas relevantes para identificar condições cardíacas. Alta completude em dados pessoais, mas irrelevante para o objetivo de pesquisa.",
+      "score_deepseek": 15,
+      "justificativa_deepseek": "Score baixo devido à ausência completa de dados clínicos sobre doenças cardiovasculares, fatores de risco ou indicadores de saúde relevantes. A tabela contém apenas dados demográficos básicos e informações administrativas, sem conexão direta com detecção de doenças cardíacas. Apesar da boa completude geral, os dados são semanticamente irrelevantes para o objetivo do usuário.",
       "colunas_deepseek": [
-        "no_sexo_cidadao",
         "dt_nascimento_cidadao",
+        "no_sexo_cidadao",
         "no_raca_cor"
       ],
-      "score_mistral": 70,
-      "justificativa_mistral": "Score 70 devido à presença de colunas relevantes como nome, data de nascimento, sexo e identificadores únicos. No entanto, a tabela carece de colunas específicas relacionadas às doenças cardiovasculares, o que limita seu potencial para o estudo em questão.",
+      "score_mistral": 20,
+      "justificativa_mistral": "Score 20 devido a falta de informações específicas sobre doenças cardiovasculares. A tabela possui dados demográficos básicos como idade, sexo e raça, que são relevantes, mas não suficientes para detectar doenças cardíacas. A tabela não contém informações sobre pressão arterial, colesterol, obesidade ou outros fatores de risco cardiovascular.",
       "colunas_mistral": [
-        "no_cidadao",
-        "no_social_cidadao",
         "dt_nascimento_cidadao",
         "no_sexo_cidadao",
-        "nu_cpf_cidadao",
-        "nu_cns_cidadao"
+        "no_raca_cor"
       ],
-      "score_openai": 83,
-      "justificativa_openai": "Score 83 devido à presença de registros de cidadãos com diagnósticos de doenças cardiovasculares. A tabela possui alta completude e adequação, com 0% de nulos em colunas chave.",
+      "score_openai": 45,
+      "justificativa_openai": "Score 45 devido à presença de dados demográficos relevantes, mas falta de informações diretas sobre fatores de risco cardiovascular. A tabela possui alta completude, mas muitos campos são irrelevantes para a detecção de doenças cardíacas.",
       "colunas_openai": [
-        "st_possui_fci",
         "dt_nascimento_cidadao",
-        "no_cidadao"
+        "no_sexo_cidadao",
+        "st_possui_fci"
       ],
-      "score_media": 55.0,
-      "score_std": 37.8,
+      "score_media": 26.67,
+      "score_std": 16.07,
       "relevancia_deepseek": "Muito Baixa",
-      "relevancia_mistral": "Média",
-      "relevancia_openai": "Alta",
+      "relevancia_mistral": "Baixa",
+      "relevancia_openai": "Baixa",
       "concordancia_categoria": false,
       "concordancia_score_10": false
     },
     {
       "table_name": "tb_dim_dose_imunobiologico",
       "schema": "public",
-      "score_deepseek": 8,
-      "justificativa_deepseek": "Score 8 devido à ausência total de conexão com doenças cardiovasculares. A tabela trata exclusivamente de doses de imunobiológicos (vacinas), sem qualquer menção a condições cardíacas, pressão arterial ou diagnósticos médicos. Apesar da boa qualidade técnica (0% nulos), o conteúdo é completamente irrelevante para o contexto de estudo cardiovascular.",
+      "score_deepseek": 5,
+      "justificativa_deepseek": "Score 5 devido à ausência total de conexão semântica com doenças cardiovasculares. A tabela trata exclusivamente de doses de imunobiológicos/vacinas, sem qualquer menção aos fatores de risco ou indicadores cardiovasculares do usuário. Embora tenha alta completude técnica, os dados são completamente irrelevantes para detecção de doenças cardíacas.",
       "colunas_deepseek": [],
-      "score_mistral": 20,
-      "justificativa_mistral": "Score 20 devido à ausência de palavras-chave relacionadas à doença cardiovascular. A tabela possui informações sobre doses de imunobiológicos, sem menção a sintomas ou classificações relacionadas à hipertensão ou outras condições cardiovasculares.",
-      "colunas_mistral": [
-        "no_dose_imunobiologico"
-      ],
-      "score_openai": 25,
-      "justificativa_openai": "Score baixo devido à falta de informações diretamente relacionadas a doenças cardiovasculares. A tabela contém dados sobre doses de imunobiológicos, mas não aborda condições cardíacas ou hipertensão.",
-      "colunas_openai": [
-        "no_dose_imunobiologico",
-        "ds_filtro"
-      ],
-      "score_media": 17.67,
-      "score_std": 8.74,
+      "score_mistral": 10,
+      "justificativa_mistral": "Score 10 devido a ausência de relação com doenças cardiovasculares. A tabela possui informações sobre doses de imunobiológicos, que não são relevantes para a detecção de doenças cardíacas.",
+      "colunas_mistral": [],
+      "score_openai": 10,
+      "justificativa_openai": "Score 10 devido à falta de conexão com doenças cardiovasculares. A tabela contém dados sobre doses de imunobiológicos, que não são relevantes para a detecção de doenças cardíacas.",
+      "colunas_openai": [],
+      "score_media": 8.33,
+      "score_std": 2.89,
       "relevancia_deepseek": "Muito Baixa",
-      "relevancia_mistral": "Baixa",
-      "relevancia_openai": "Baixa",
-      "concordancia_categoria": false,
-      "concordancia_score_10": false
+      "relevancia_mistral": "Muito Baixa",
+      "relevancia_openai": "Muito Baixa",
+      "concordancia_categoria": true,
+      "concordancia_score_10": true
     },
     {
       "table_name": "tb_dim_imunobiologico",
       "schema": "public",
-      "score_deepseek": 12,
-      "justificativa_deepseek": "Score baixo devido à ausência de dados sobre doenças cardiovasculares, pressão arterial ou diagnósticos médicos. A tabela contém apenas informações sobre imunobiológicos/vacinas. Embora tenha boa completude (0% nulos), é irrelevante para identificar condições cardíacas em registros de pacientes.",
+      "score_deepseek": 15,
+      "justificativa_deepseek": "Score baixo devido à conexão apenas tangencial com doenças cardiovasculares. A tabela contém dados sobre imunobiológicos e vacinas, mas não aborda diretamente fatores de risco cardiovasculares como hipertensão, diabetes ou obesidade. Apesar da boa completude dos dados, a relevância semântica é muito limitada para o objetivo específico de detecção de doenças cardíacas.",
       "colunas_deepseek": [
         "no_imunobiologico",
         "sg_imunobiologico"
       ],
-      "score_mistral": 30,
-      "justificativa_mistral": "Score 30 devido à presença de palavras-chave relacionadas a doenças cardiovasculares em apenas uma coluna (no_imunobiologico). A tabela possui baixa qualidade e usabilidade para o contexto de big data, com apenas 40 registros.",
-      "colunas_mistral": [
-        "no_imunobiologico"
-      ],
-      "score_openai": 25,
-      "justificativa_openai": "Score baixo devido à falta de dados diretamente relacionados a doenças cardiovasculares. A tabela possui registros válidos, mas não contém informações relevantes para a pesquisa.",
-      "colunas_openai": [
-        "sg_imunobiologico",
-        "no_imunobiologico"
-      ],
-      "score_media": 22.33,
-      "score_std": 9.29,
+      "score_mistral": 10,
+      "justificativa_mistral": "Score 10 devido a ausência de relação direta com doenças cardiovasculares. A tabela possui dados sobre imunobiológicos, que não são relevantes para a detecção de doenças cardíacas. Nenhuma coluna contribui para o tema central do estudo.",
+      "colunas_mistral": [],
+      "score_openai": 10,
+      "justificativa_openai": "Score 10 devido à ausência de informações relevantes sobre doenças cardiovasculares. A tabela contém dados sobre vacinas, que não se relacionam com hipertensão, obesidade ou diabetes.",
+      "colunas_openai": [],
+      "score_media": 11.67,
+      "score_std": 2.89,
       "relevancia_deepseek": "Muito Baixa",
-      "relevancia_mistral": "Baixa",
-      "relevancia_openai": "Baixa",
-      "concordancia_categoria": false,
-      "concordancia_score_10": false
+      "relevancia_mistral": "Muito Baixa",
+      "relevancia_openai": "Muito Baixa",
+      "concordancia_categoria": true,
+      "concordancia_score_10": true
     },
     {
       "table_name": "ta_ad_cidadao",
       "schema": "public",
-      "score_deepseek": 72,
-      "justificativa_deepseek": "Score 72 devido à presença de colunas de CID-10 para identificação de diagnósticos cardiovasculares, mas com limitações na completude dos dados. A tabela possui estrutura adequada para rastreamento de condições médicas, porém apenas 1 registro disponível para análise.",
+      "score_deepseek": 15,
+      "justificativa_deepseek": "Score baixo devido à ausência de dados específicos sobre doenças cardiovasculares, fatores de risco ou indicadores de saúde relevantes. A tabela contém principalmente campos administrativos e identificadores, com apenas um código CID-10 genérico (9207) que não está diretamente relacionado aos termos-chave do usuário. A maioria das colunas são irrelevantes para detecção de doenças cardíacas.",
       "colunas_deepseek": [
-        "co_cid10_principal",
-        "co_cid10_causa_associada",
-        "co_cid10_secundario_2",
-        "dt_reg_obito"
-      ],
-      "score_mistral": 60,
-      "justificativa_mistral": "Score 60 devido ao Sub-Critério A (30%) com a presença da palavra-chave 'co_cid10_principal' relacionada ao Foco de Desfecho e Variáveis Chave. A tabela possui uma única linha de dados, o que pode impactar a análise.",
-      "colunas_mistral": [
         "co_cid10_principal"
       ],
-      "score_openai": 45,
-      "justificativa_openai": "Score 45 devido à presença de um código CID principal relacionado a doenças cardiovasculares. A tabela possui alta taxa de nulos e apenas um registro, limitando sua utilidade para análise abrangente.",
+      "score_mistral": 10,
+      "justificativa_mistral": "Score baixo devido à falta de conexão direta com doenças cardiovasculares. A tabela contém códigos CID-10 sem descrições claras, não atendendo aos critérios de relevância semântica. A qualidade dos dados é limitada pela ausência de informações específicas sobre fatores de risco cardiovascular.",
+      "colunas_mistral": [
+        "co_cid10_principal",
+        "co_cid10_causa_associada",
+        "co_cid10_secundario_2"
+      ],
+      "score_openai": 25,
+      "justificativa_openai": "Score 25 devido à presença de um código CID principal que pode estar relacionado a doenças cardiovasculares, mas falta informação sobre fatores de risco como pressão arterial e obesidade. A tabela tem baixa completude e relevância semântica para o problema do usuário.",
       "colunas_openai": [
         "co_cid10_principal"
       ],
-      "score_media": 59.0,
-      "score_std": 13.53,
-      "relevancia_deepseek": "Média",
-      "relevancia_mistral": "Média",
+      "score_media": 16.67,
+      "score_std": 7.64,
+      "relevancia_deepseek": "Muito Baixa",
+      "relevancia_mistral": "Muito Baixa",
       "relevancia_openai": "Baixa",
       "concordancia_categoria": false,
       "concordancia_score_10": false
@@ -171,128 +151,117 @@
     {
       "table_name": "ta_evolucao_subjetivo",
       "schema": "public",
-      "score_deepseek": 72,
-      "justificativa_deepseek": "Score 72 devido à presença direta de termos cardiovasculares como 'HIPERTENSÃO ARTERIAL' e 'PA' na coluna ds_subjetivo, alinhando-se com o foco geral de identificação de condições cardíacas. A tabela possui boa completude geral, mas penalizada pela alta taxa de nulos (25%) na coluna principal de conteúdo clínico e ausência de colunas estruturadas específicas para diagnósticos cardiovasculares.",
+      "score_deepseek": 35,
+      "justificativa_deepseek": "Score 35 devido à presença limitada de dados sobre hipertensão arterial no campo ds_subjetivo, que representa apenas uma pequena fração dos registros. A tabela contém principalmente identificadores e metadados de auditoria irrelevantes, com alta taxa de nulos (25%) no único campo semanticamente relevante. A conexão direta com doenças cardiovasculares é fraca e esparsa.",
       "colunas_deepseek": [
         "ds_subjetivo"
       ],
-      "score_mistral": 68,
-      "justificativa_mistral": "Score 68 devido ao Sub-Critério A (30%) com a coluna 'ds_subjetivo' contendo textos relacionados a condições cardiovasculares, como hipertensão. No entanto, a tabela possui uma alta taxa de nulos (24.97%) e não há informações diretas sobre outras doenças cardiovasculares (Sub-Critério A: 30%). A tabela possui adequação (Sub-Critério D) para o contexto do estudo.",
+      "score_mistral": 35,
+      "justificativa_mistral": "Score 35 devido à presença de termos relacionados a hipertensão arterial na coluna 'ds_subjetivo'. A tabela possui dados relevantes, mas a maioria das informações é irrelevante para o estudo de doenças cardiovasculares. A coluna 'ds_subjetivo' contém termos como 'HIPERTENSÃO ARTERIAL', que são relevantes, mas a tabela como um todo não é específica o suficiente para o problema do usuário.",
       "colunas_mistral": [
         "ds_subjetivo"
       ],
-      "score_openai": 83,
-      "justificativa_openai": "Score 83 devido à presença de registros de hipertensão arterial e outros sintomas cardiovasculares. A tabela possui alta completude e adequação, com 0% de dados nulos.",
+      "score_openai": 65,
+      "justificativa_openai": "Score 65 devido à presença de informações sobre hipertensão arterial e acompanhamento de saúde. A tabela possui alta completude, mas a falta de dados diretos sobre obesidade e diabetes limita sua relevância.",
       "colunas_openai": [
         "ds_subjetivo",
-        "co_tipo_auditoria"
+        "dt_auditoria"
       ],
-      "score_media": 74.33,
-      "score_std": 7.77,
-      "relevancia_deepseek": "Média",
-      "relevancia_mistral": "Média",
-      "relevancia_openai": "Alta",
+      "score_media": 45.0,
+      "score_std": 17.32,
+      "relevancia_deepseek": "Baixa",
+      "relevancia_mistral": "Baixa",
+      "relevancia_openai": "Média",
       "concordancia_categoria": false,
       "concordancia_score_10": false
     },
     {
       "table_name": "tb_acomp_cidadaos_vinc_prcs",
       "schema": "public",
-      "score_deepseek": 12,
-      "justificativa_deepseek": "Score baixo devido à ausência completa de dados clínicos sobre doenças cardiovasculares. A tabela contém apenas metadados de processamento e datas, sem informações sobre diagnósticos, sintomas ou variáveis cardiovasculares. Apesar da boa completude (0% nulos), os dados são irrelevantes para identificar condições cardíacas em registros de pacientes.",
+      "score_deepseek": 5,
+      "justificativa_deepseek": "Score 5 devido à ausência total de campos relacionados a doenças cardiovasculares, fatores de risco ou dados populacionais de saúde. A tabela contém apenas metadados de processamento técnico e identificadores, sendo irrelevante para detecção de doenças cardíacas. A alta completude dos dados não compensa a falta de relevância semântica para o problema do usuário.",
       "colunas_deepseek": [],
-      "score_mistral": 50,
-      "justificativa_mistral": "Score 50 devido à presença da palavra-chave 'PROCESSADO' relacionada ao processamento de registros de pessoas. No entanto, a tabela não possui colunas diretamente ligadas às doenças cardiovasculares ou à pressão arterial, o que impacta negativamente o score.",
-      "colunas_mistral": [
-        "no_status_processamento"
-      ],
-      "score_openai": 83,
-      "justificativa_openai": "Score 83 devido à presença de registros processados e datas de início e fim, que são relevantes para o acompanhamento de doenças cardiovasculares. A tabela possui alta completude e adequação, com 867 registros sem dados nulos.",
-      "colunas_openai": [
-        "dt_inicio",
-        "dt_fim"
-      ],
-      "score_media": 48.33,
-      "score_std": 35.53,
+      "score_mistral": 10,
+      "justificativa_mistral": "Score 10 devido a falta de relevância semântica. A tabela não possui colunas relacionadas a doenças cardiovasculares ou fatores de risco como pressão arterial, obesidade, diabetes, etc. A tabela parece ser apenas um registro de processamento de dados sem informações relevantes para a detecção de doenças cardíacas.",
+      "colunas_mistral": [],
+      "score_openai": 15,
+      "justificativa_openai": "Score 15 devido à ausência de informações relevantes sobre doenças cardiovasculares. A tabela contém apenas dados de processamento e não inclui indicadores de saúde como pressão arterial, obesidade ou diabetes.",
+      "colunas_openai": [],
+      "score_media": 10.0,
+      "score_std": 5.0,
       "relevancia_deepseek": "Muito Baixa",
-      "relevancia_mistral": "Média",
-      "relevancia_openai": "Alta",
-      "concordancia_categoria": false,
-      "concordancia_score_10": false
+      "relevancia_mistral": "Muito Baixa",
+      "relevancia_openai": "Muito Baixa",
+      "concordancia_categoria": true,
+      "concordancia_score_10": true
     },
     {
       "table_name": "tb_alim_bebida",
       "schema": "public",
-      "score_deepseek": 12,
-      "justificativa_deepseek": "Score baixo devido à ausência total de termos relacionados a doenças cardiovasculares, sintomas ou pressão arterial. A tabela contém apenas dados sobre alimentos e bebidas, sem conexão direta com diagnósticos cardiovasculares. A qualidade dos dados é boa, mas a relevância semântica é praticamente nula para o objetivo do estudo.",
-      "colunas_deepseek": [],
+      "score_deepseek": 25,
+      "justificativa_deepseek": "Score 25 devido à conexão indireta com nutrição, um fator de risco cardiovascular. A tabela contém dados sobre alimentos e bebidas, mas não possui informações diretas sobre doenças cardíacas, fatores de risco específicos ou dados populacionais. A coluna ds_alim_bebida permite identificar padrões alimentares, mas a relação com detecção de doenças é tangencial.",
+      "colunas_deepseek": [
+        "ds_alim_bebida"
+      ],
       "score_mistral": 20,
-      "justificativa_mistral": "Score 20 devido à presença de palavras-chave relacionadas a alimentos, que podem estar relacionadas a fatores de risco cardiovascular. No entanto, a tabela carece de informações diretamente relevantes sobre doenças cardiovasculares. A tabela possui dados completos e adequados à análise.",
+      "justificativa_mistral": "Score 20 devido à baixa relevância semântica. A tabela possui informações sobre alimentação, que é tangencialmente relacionada a doenças cardiovasculares, mas não aborda diretamente fatores de risco como hipertensão, diabetes ou obesidade. A coluna 'ds_alim_bebida' contém dados sobre tipos de alimentos, mas não há informações específicas sobre nutrição e sua relação com doenças cardíacas.",
       "colunas_mistral": [
         "ds_alim_bebida"
       ],
-      "score_openai": 10,
-      "justificativa_openai": "Score baixo devido à falta de relação com doenças cardiovasculares. A tabela contém dados sobre alimentos e bebidas, não abordando variáveis chave como pressão arterial.",
-      "colunas_openai": [],
-      "score_media": 14.0,
-      "score_std": 5.29,
-      "relevancia_deepseek": "Muito Baixa",
+      "score_openai": 25,
+      "justificativa_openai": "Score 25 devido à falta de dados diretos sobre fatores de risco cardiovascular como hipertensão e obesidade. A tabela possui informações sobre alimentos, mas não aborda diretamente a detecção de doenças cardíacas.",
+      "colunas_openai": [
+        "ds_alim_bebida"
+      ],
+      "score_media": 23.33,
+      "score_std": 2.89,
+      "relevancia_deepseek": "Baixa",
       "relevancia_mistral": "Baixa",
-      "relevancia_openai": "Muito Baixa",
-      "concordancia_categoria": false,
+      "relevancia_openai": "Baixa",
+      "concordancia_categoria": true,
       "concordancia_score_10": true
     },
     {
       "table_name": "tb_auditoria_evento",
       "schema": "public",
-      "score_deepseek": 12,
-      "justificativa_deepseek": "Score baixo devido à ausência de termos específicos de doenças cardiovasculares. A tabela é de auditoria de sistema, não contendo dados clínicos diretos. Apenas a coluna ds_detalhes poderia conter informações textuais relacionadas, mas sem evidências de termos cardíacos nos metadados. Alta completude geral, mas irrelevante para o contexto médico.",
-      "colunas_deepseek": [
-        "ds_detalhes"
-      ],
-      "score_mistral": 50,
-      "justificativa_mistral": "Score 50 devido à presença da coluna ds_detalhes, que pode conter informações relacionadas a sintomas e classificações textuais de doenças cardiovasculares. No entanto, a tabela não possui colunas diretamente relacionadas ao foco de desfecho ou às variáveis-chave do estudo, o que justifica um score moderado.",
-      "colunas_mistral": [
-        "ds_detalhes"
-      ],
-      "score_openai": 45,
-      "justificativa_openai": "Score 45 devido à falta de variáveis diretamente relacionadas a doenças cardiovasculares. A tabela possui alta completude, mas a adequação é baixa, pois não contém informações relevantes sobre diagnósticos ou sintomas.",
-      "colunas_openai": [
-        "tp_evento",
-        "ds_detalhes"
-      ],
-      "score_media": 35.67,
-      "score_std": 20.65,
+      "score_deepseek": 5,
+      "justificativa_deepseek": "Score 5 devido à ausência total de conexão semântica com doenças cardiovasculares. A tabela contém apenas dados de auditoria de sistema (eventos, usuários, IPs, logs), sem nenhum campo relacionado a pressão arterial, HDL, obesidade ou fatores de risco cardíaco. A alta completude dos dados não compensa a irrelevância temática para o objetivo do usuário.",
+      "colunas_deepseek": [],
+      "score_mistral": 10,
+      "justificativa_mistral": "Score baixo devido à ausência de informações relevantes sobre doenças cardiovasculares. A tabela contém dados de auditoria de eventos, sem relação direta com fatores de risco cardiovascular ou saúde populacional.",
+      "colunas_mistral": [],
+      "score_openai": 10,
+      "justificativa_openai": "Score 10 devido à falta de informações relevantes sobre doenças cardiovasculares. A tabela contém dados de auditoria sem conexão direta com fatores de risco ou saúde cardiovascular.",
+      "colunas_openai": [],
+      "score_media": 8.33,
+      "score_std": 2.89,
       "relevancia_deepseek": "Muito Baixa",
-      "relevancia_mistral": "Média",
-      "relevancia_openai": "Baixa",
-      "concordancia_categoria": false,
-      "concordancia_score_10": false
+      "relevancia_mistral": "Muito Baixa",
+      "relevancia_openai": "Muito Baixa",
+      "concordancia_categoria": true,
+      "concordancia_score_10": true
     },
     {
       "table_name": "tb_beneficio",
       "schema": "public",
       "score_deepseek": 8,
-      "justificativa_deepseek": "Score baixo devido à ausência total de termos relacionados a doenças cardiovasculares. A tabela contém apenas informações sobre benefícios sociais (Bolsa Família, BPC, etc.) sem qualquer menção a condições médicas, sintomas ou variáveis clínicas. A qualidade dos dados é boa, mas a relevância semântica é praticamente nula para o contexto de pesquisa.",
+      "justificativa_deepseek": "Score 8 devido à ausência total de conexão direta com doenças cardiovasculares. A tabela contém apenas dados sobre benefícios sociais (bolsa família, cesta alimentar, aposentadoria) sem qualquer relação com fatores de risco cardiovasculares. Apesar da boa completude dos dados, a irrelevância semântica é total para o objetivo de detecção de doenças cardíacas.",
       "colunas_deepseek": [
-        "no_beneficio",
-        "no_beneficio_filtro"
+        "no_beneficio"
       ],
-      "score_mistral": 30,
-      "justificativa_mistral": "Score 30 devido à presença de palavras-chave relacionadas a conceitos (benefício), mas sem ligação direta com doenças cardiovasculares. A tabela possui alta completude e adequação, mas é de baixa relevância para o contexto do estudo.",
-      "colunas_mistral": [
-        "no_beneficio_filtro"
-      ],
+      "score_mistral": 10,
+      "justificativa_mistral": "Score baixo devido à falta de relação direta com doenças cardiovasculares. A tabela trata de benefícios sociais, sem informações relevantes para detecção de doenças cardíacas.",
+      "colunas_mistral": [],
       "score_openai": 10,
-      "justificativa_openai": "Score baixo devido à falta de relação com doenças cardiovasculares. A tabela contém dados sobre benefícios sociais, sem informações relevantes sobre saúde ou condições cardíacas.",
+      "justificativa_openai": "Score 10 devido à ausência de informações relevantes sobre doenças cardiovasculares. A tabela contém dados sobre benefícios sociais, que não se relacionam com os fatores de risco ou condições cardíacas.",
       "colunas_openai": [],
-      "score_media": 16.0,
-      "score_std": 12.17,
+      "score_media": 9.33,
+      "score_std": 1.15,
       "relevancia_deepseek": "Muito Baixa",
-      "relevancia_mistral": "Baixa",
+      "relevancia_mistral": "Muito Baixa",
       "relevancia_openai": "Muito Baixa",
-      "concordancia_categoria": false,
-      "concordancia_score_10": false
+      "concordancia_categoria": true,
+      "concordancia_score_10": true
     }
   ]
 }

@@ -1,0 +1,30 @@
+{
+  "perfil_usuario": {
+    "problema_geral": "detecção de doencas cardiovaculares",
+    "escopo_uso": "quero meio que selecionar o maximo de tabelas que se relacionem com doenças cardiacas",
+    "palavras_chave": [
+      "pressão arterial",
+      "HDL",
+      "obesidade",
+      "sono",
+      "insonia",
+      "nutrição",
+      "colesterol",
+      "hipertensão"
+    ],
+    "exclusoes": [
+      "codigos",
+      "identificadoes"
+    ],
+    "criterios_relevancia": {
+      "definicao_textual": "se a tabelas conter informações que possam me ajudar a detectar que ele possa ter apresentar doenças cardiacas",
+      "campos_desejados": [
+        "pressão alta",
+        "obesidade",
+        "diabetes"
+      ],
+      "tolerancia_ruido": "alta precisão",
+      "justificativa_minima": "a justificativa deve conter o motivo da nota seja ela boa ou ruim."
+    }
+  }
+}
