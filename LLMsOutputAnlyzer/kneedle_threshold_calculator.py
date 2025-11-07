@@ -2,6 +2,7 @@ import json
 import sys
 import numpy as np
 from kneed import KneeLocator
+import os
 
 def find_knee_point(data, curve='convex', direction='increasing'):
     """
@@ -141,18 +142,18 @@ def main():
     """
     Função principal para executar o script.
     """
-    if len(sys.argv) < 2:
-        print("Uso: python3 kneedle_threshold_calculator.py <caminho_para_arquivo_json>")
+    # Caminho para o arquivo na mesma pasta do script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    json_file_path = os.path.join(script_dir, "agreement_continuous_report.json")
+
+    # Verifica se o arquivo existe
+    if not os.path.exists(json_file_path):
+        print(f"Erro: O arquivo 'agreement_continuous_report.json' não foi encontrado na pasta: {script_dir}", file=sys.stderr)
         sys.exit(1)
 
-    json_file_path = sys.argv[1]
-    
     try:
-        with open(json_file_path, 'r') as f:
+        with open(json_file_path, 'r', encoding='utf-8') as f:
             json_data = json.load(f)
-    except FileNotFoundError:
-        print(f"Erro: Arquivo não encontrado em '{json_file_path}'", file=sys.stderr)
-        sys.exit(1)
     except json.JSONDecodeError:
         print(f"Erro: O arquivo '{json_file_path}' não é um JSON válido.", file=sys.stderr)
         sys.exit(1)
@@ -170,7 +171,4 @@ def main():
     print("--------------------------------------")
 
 if __name__ == "__main__":
-    # Ativa o ambiente virtual para garantir que as bibliotecas estejam disponíveis
-    # Isso é feito no shell antes de executar o script, mas é bom ter a nota.
-    # O script será executado com `python3 kneedle_threshold_calculator.py ...`
     main()
