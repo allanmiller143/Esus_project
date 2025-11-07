@@ -13,7 +13,7 @@
 |---------|-------|
 | **Total de Tabelas** | 885 |
 | **Score Médio** | 22.10 |
-| **Score Mínimo** | 0 |
+| **Score Mínimo** | 0 | 
 | **Score Máximo** | 85 |
 | **Erros de Processamento** | 0 |
     
